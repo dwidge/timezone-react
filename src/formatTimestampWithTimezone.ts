@@ -1,6 +1,6 @@
 import { TimeZoneCode } from "@dwidge/timezone";
 import { format } from "date-fns";
-import { utcToZonedTime } from "date-fns-tz";
+import { toZonedTime } from "date-fns-tz";
 
 /**
 Formats a Unix timestamp with a specified timezone and pattern using the date-fns and date-fns-tz libraries.
@@ -18,7 +18,7 @@ export function formatTimestampWithTimezone(
   const date = new Date(timestampSeconds * 1000);
 
   // Convert the Date object to the specified timezone
-  const zonedDate = utcToZonedTime(date, timeZone ?? "Europe/London");
+  const zonedDate = toZonedTime(date, timeZone ?? "Europe/London");
 
   // Format the zonedDate to a string in the desired format
   const formattedDate = format(zonedDate, pattern);
